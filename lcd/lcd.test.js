@@ -1,7 +1,12 @@
-var test = require('tape');
+const test = require('tape');
+const lcd = require('./lcd');
 
-test('sample test', function (t) {
-    t.plan(1);
+test('LCD', function (t) {
+    const number = lcd(3);
+    const lines = number.split('\n');
+    const [line] = lines;
 
-    t.equal(2, 2);
+    t.equal(lines.length, 3, 'should have 3 rows per digit');
+    t.equal(line.length, 3, 'should have 3 columns per digit');
+    t.end();
 });
