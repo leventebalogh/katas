@@ -3,18 +3,19 @@
 * Number of LINES in all representations: 48
 */
 
+const COLUMN_NUM = 3;
+const ROW_NUM = 3;
+
 module.exports = function lcd (number) {
-    const columnNum = 3;
-    const rowNum = 3;
-    const characters = Array.from(new Array(rowNum * columnNum));
+    const characters = Array.from(new Array(ROW_NUM * COLUMN_NUM));
 
     return characters
         .map((character, index) => index)
         .reduce((output, index) => {
             const column = index + 1;
             const character = '.';
-            const isEndOfRow = column % columnNum === 0;
-            const isLastCharacter = column === rowNum * columnNum;
+            const isEndOfRow = column % COLUMN_NUM === 0;
+            const isLastCharacter = column === ROW_NUM * COLUMN_NUM;
 
             if (isEndOfRow && !isLastCharacter) {
                 return `${ output }${ character }\n`;
