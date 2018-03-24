@@ -7,9 +7,7 @@ const COLUMN_NUM = 3;
 const ROW_NUM = 3;
 
 module.exports = function lcd (number) {
-    const characters = Array.from(new Array(ROW_NUM * COLUMN_NUM));
-
-    return characters
+    return getCharacterArray()
         .map((character, index) => index)
         .reduce((output, index) => {
             const column = index + 1;
@@ -29,4 +27,8 @@ function isEndOfRow (column) {
 
 function isLastCharacter (column) {
     return column === ROW_NUM * COLUMN_NUM;
+}
+
+function getCharacterArray() {
+    return Array.from(new Array(ROW_NUM * COLUMN_NUM));
 }
