@@ -14,13 +14,19 @@ module.exports = function lcd (number) {
         .reduce((output, index) => {
             const column = index + 1;
             const character = '.';
-            const isEndOfRow = column % COLUMN_NUM === 0;
-            const isLastCharacter = column === ROW_NUM * COLUMN_NUM;
 
-            if (isEndOfRow && !isLastCharacter) {
+            if (isEndOfRow(column) && !isLastCharacter(column)) {
                 return `${ output }${ character }\n`;
             }
 
             return `${ output }${ character }`;
         }, '');
 };
+
+function isEndOfRow (column) {
+    return column % COLUMN_NUM === 0;
+}
+
+function isLastCharacter (column) {
+    return column === ROW_NUM * COLUMN_NUM;
+}
