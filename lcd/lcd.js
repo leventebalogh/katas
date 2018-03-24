@@ -1,6 +1,8 @@
 /*
 * Number of DOTS in all representations: 42
 * Number of LINES in all representations: 48
+*
+* Storing the indexes of empty spaces as config.
 */
 
 const COLUMN_NUM = 3;
@@ -11,7 +13,16 @@ const CHARACTERS = {
     EMPTY: '.'
 };
 const EMPTY_INDEXES = [
-    [1, 3, 5]
+    [1, 3, 5], // 0
+    [1, 2, 3, 4, 5, 7, 8], // 1
+    [1, 3, 4, 9], // 2
+    [1, 3, 4, 7], // 3
+    [1, 2, 3, 7, 8], // 4
+    [1, 3, 6, 7], // 5
+    [1, 3, 6], // 6
+    [1, 3, 4, 5, 7, 8], // 7
+    [1, 3], // 8
+    [1, 3, 7, 8] // 9
 ];
 
 module.exports = function lcd (number) {
