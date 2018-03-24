@@ -18,10 +18,10 @@ module.exports = function lcd (number) {
     return getCharacterArray()
         .map((character, index) => index)
         .reduce((output, index) => {
-            const column = index + 1;
-            const character = getCharacter(column, number);
+            const shiftedIndex = index + 1;
+            const character = getCharacter(shiftedIndex, number);
 
-            if (isEndOfRow(column) && !isLastCharacter(column)) {
+            if (isEndOfRow(shiftedIndex) && !isLastCharacter(shiftedIndex)) {
                 return `${ output }${ character }\n`;
             }
 
@@ -31,8 +31,9 @@ module.exports = function lcd (number) {
 
 function getCharacter (index, number) {
     const emptyIndexes = EMPTY_INDEXES[number] || [];
+    const isEmpty = emptyIndexes.indexOf(index) >= 0;
 
-    if (emptyIndexes.indexOf(index) >= 0) {
+    if (isEmpty) {
         return CHARACTERS.EMPTY;
     }
 
@@ -43,16 +44,16 @@ function getCharacter (index, number) {
     return CHARACTERS.UNDERSCORE;
 }
 
-function isBeginningOfRow (column) {
-    return (column - 1) % COLUMN_NUM === 0;
+function isBeginningOfRow (index) {
+    return (index - 1) % COLUMN_NUM === 0;
 }
 
-function isEndOfRow (column) {
-    return column % COLUMN_NUM === 0;
+function isEndOfRow (index) {
+    return index % COLUMN_NUM === 0;
 }
 
-function isLastCharacter (column) {
-    return column === ROW_NUM * COLUMN_NUM;
+function isLastCharacter (index) {
+    return index === ROW_NUM * COLUMN_NUM;
 }
 
 function getCharacterArray() {
