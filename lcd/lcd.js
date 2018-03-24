@@ -4,17 +4,17 @@
 */
 
 module.exports = function lcd (number) {
-    const columns = 3;
-    const rows = 3;
-    const characters = Array.from(new Array(rows * columns));
+    const columnNum = 3;
+    const rowNum = 3;
+    const characters = Array.from(new Array(rowNum * columnNum));
 
     return characters
         .map((character, index) => index)
         .reduce((output, index) => {
             const column = index + 1;
             const character = '.';
-            const isEndOfRow = column % columns === 0;
-            const isLastCharacter = column === rows * columns;
+            const isEndOfRow = column % columnNum === 0;
+            const isLastCharacter = column === rowNum * columnNum;
 
             if (isEndOfRow && !isLastCharacter) {
                 return `${ output }${ character }\n`;
