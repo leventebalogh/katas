@@ -1,3 +1,7 @@
-const tap = require('tap');
+var test = require('tape');
 
-tap.pass('this is fine');
+test('sample test', function (t) {
+    t.plan(1);
+
+    t.equal(2, 2);
+});
