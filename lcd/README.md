@@ -18,3 +18,9 @@ Example: 910
 |_| ..| |.|
 ..| ..| |_|
 ```
+
+## Run the tests
+
+```bash
+> yarn test
+```
