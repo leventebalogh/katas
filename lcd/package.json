@@ -1,0 +1,12 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "Small programming katas for practicing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap ./**/*.test.js"
+  },
+  "devDependencies": {
+    "tap": "^11.1.3"
+  }
+}
